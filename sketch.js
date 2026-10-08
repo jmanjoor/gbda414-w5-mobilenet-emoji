@@ -59,8 +59,12 @@ function draw() {
   background(15);
 
   // LIVE WEBCAM
-  image(video, 0, 0, 640, 350);
+  // Cinematic crop — maintains natural proportions
+  let sourceWidth = 640;
+  let sourceHeight = 350 * (480 / 350);
+  let sourceY = (480 - 350) / 2;
 
+  image(video, 0, 0, 640, 350, 0, 65, 640, 350);
   fill(255);
   textAlign(LEFT, BASELINE);
   textSize(12);
